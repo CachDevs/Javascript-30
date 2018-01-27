@@ -61,3 +61,13 @@ body {
   transition-duration: 0.08s;
   transition-timing-function: cubic-bezier(0, 2.5, 0.6, 1);
 }
+
+.hour-hand {
+  width: 25%;
+  left: 25% /* 50% minus new width*/
+}
+
+.min-hand {
+  width: 35%;
+  left: 15% /* 50% minus new width*/
+}
