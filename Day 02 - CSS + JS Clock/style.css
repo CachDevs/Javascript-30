@@ -37,6 +37,17 @@ body {
   transform: translateY(-3px); /* Height of the clock hands */
 }
 
+.clock-face-center {
+  width: 20px;
+  height: 20px;
+  background: black;
+  position: absolute;
+  top: calc(50% - 8px);
+  left: calc(50% - 10px);
+
+  border-radius: 100%;
+}
+
 .hand {
   width: 50%;
   height: 6px;
