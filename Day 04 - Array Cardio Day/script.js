@@ -87,16 +87,44 @@ const oldest = inventors.sort(function(a, b) {
   return lastGuy > nextGuy ? -1 : 1;
 });
 console.log("oldest");
-console.log(oldest);
+console.table(oldest);
 console.log("---------------");
 
 // 6. Create a list of Boulevards in Paris that contain 'de' anywhere in the names
+// Test in en.wikipedia.org/wiki/Category:Boulevards_inParis console
+/*
+const category = document.selector('.mw-category');
+const links = [...category.querySelectorAll('a')]; // Spread takes every item out of something iterable and put it into the array
+const de = links
+            .map(link => link.textContet).
+            filter(streetName => streetName.includes('de'));
+*/
 
 // 7. Sort exercise
 // Sort the people alphabetically by last names
+const alpha = people.sort((lastOne, nextOne) => {
+  const [aLast, aFirst] = lastOne.split(', ');
+  const [bLast, bFirst] = nextOne.split(', ');
+  return aLast > bLast ? 1 : -1;
+});
+console.log("alpha");
+console.table(alpha);
+console.log("---------------");
 
 // 8. Reduce exercise
 // Sum up the instances of each of these
 const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike',
   'walk', 'car', 'van', 'car', 'truck'
 ];
+
+const transportation = data.reduce(function(obj, item) {
+  if(!obj[item]) {
+    obj[item] = 0;
+  }
+
+  obj[item]++;
+  return obj;
+}, {});
+console.log("transportation");
+console.table(transportation);
+console.log("---------------");
