@@ -16,10 +16,53 @@ const comments = [
 
 // Some and Every Checks
 // Array.prototype.some() // is at least one person 19 or older?
+const isThereAdult = people.some(function (person) {
+  const currentYear = (new Date()).getFullYear();
+  if(currentYear - person.year > 18) {
+    return true;
+  }
+});
+
+const isThereAdultShort = people.some(person =>
+  (new Date()).getFullYear() - person.year > 18);
+
+console.log({isThereAdultShort});
+console.log("-----------------");
+
 // Array.prototype.every() // is everyone 19 or older?
+const isAllAdultShort = people.every(person =>
+  (new Date()).getFullYear() - person.year > 18);
+
+console.log({isAllAdultShort});
+console.log("-----------------");
+
 // Array.prototype.find()
 // Find is like filter, but instead returns just the one you are looking for
 // find the comment with the ID of 823423
+const comment = comments.find(function (comment) {
+  if(comment.id === 823423) {
+    return true;
+  }
+});
+
+const commentShort = comments.find(comment =>
+  comment.id === 823423);
+
+console.log({commentShort});
+console.log("-----------------");
+
 // Array.prototype.findIndex()
 // Find the comment with this ID
 // delete the comment with the ID of 823423
+const commentIndex = comments.findIndex(comment =>
+  comment.id === 823423);
+console.log("Comment index: " + commentIndex);
+
+/* comments.splice(index, 1); */
+const newComments = [
+  ...comments.slice(0, commentIndex),
+  ...comments.slice(commentIndex + 1)
+];
+
+console.log("Updated Array newComments:");
+console.table(newComments);
