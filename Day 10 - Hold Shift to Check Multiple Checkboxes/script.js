@@ -9,10 +9,11 @@ function handleCheck(e){
   // Check if the had the Shift key down
   // and that they are checking
   let inBetween = false;
-  if(e.shiftKey && this.checked){
+  if(e.shiftKey && this.checked && lastChecked != undefined){
     // loop over every checkbox
     checkboxes.forEach(checkbox => {
-      if(checkbox === this || checkbox === lastChecked) {
+      if((checkbox === this || checkbox === lastChecked) &&
+        this != lastChecked) {
         inBetween = !inBetween;
       }
 
@@ -20,9 +21,7 @@ function handleCheck(e){
         checkbox.checked = true;
       }
     });
-
-    lastChecked = this;
   }
 
-
+  lastChecked = this;
 }
