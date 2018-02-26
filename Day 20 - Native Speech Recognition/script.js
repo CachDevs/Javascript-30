@@ -20,6 +20,10 @@ recognition.addEventListener('result', e => {
     }
 
     console.log(transcript);
+
+    if(transcript.includes('match')) {
+      console.log('It is a match!!!');
+    }
 });
 
 recognition.addEventListener('end', recognition.start);
